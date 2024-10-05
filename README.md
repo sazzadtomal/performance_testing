@@ -9,55 +9,32 @@ Using **Apache JMeter**, the test simulated concurrent user threads, starting fr
 The results provide insights into the system's capacity to handle concurrent users and will help guide optimizations for future scalability and performance improvements.
 
 
-## Instructions
-
-### Install
-
-#### Java
-
-https://www.oracle.com/java/technologies/downloads/
-
-#### JMeter
-
-https://jmeter.apache.org/download_jmeter.cgi
-
-Click =>Binaries
-=>apache-jmeter-5.5.zip
-
 ## Prerequisites
 
-As of JMeter 4.0, Java 8 and above are supported.
-* We suggest multicore CPUs with 4 or more cores.
-* Memory 16GB RAM is a good value.
+Before conducting performance tests using Apache JMeter, ensure that the following prerequisites are met:
 
-## Elements of a minimal test plan
+1. **Apache JMeter**
+   - Minimum version: **Apache JMeter 4.0**
+   - Download the latest version from the [Apache JMeter website](https://jmeter.apache.org/download_jmeter.cgi).
 
-* Thread Group
-  
-    The root element of every test plan. Simulates the (concurrent) users and then run all requests. Each thread simulates a single user.
-  
-* HTTP Request Default (Configuration Element)
-* HTTP Request (Sampler)
-* Summary Report (Listener)
+2. **Java Development Kit (JDK)**
+   - Ensure that **Java 8** or higher is installed on your system. 
+   - You can download the JDK from the [Oracle website](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html) or [OpenJDK](https://openjdk.java.net/install/).
+   - Verify the installation by running the following command in your terminal or command prompt:
+     ```bash
+     java -version
+     ```
 
-## Test Plan
-* Testplan > Add > Threads (Users) > Thread Group (this might vary depending on the JMeter version you are using)
-* Name: RestfulBooker Users
-* Number of Threads (users): 100 to 5000
-* Ramp-Up Period (in seconds): 10
-* Loop Count: 1
-
-  1) The general setting for the tests execution, such as whether Thread Groups will run simultaneously or sequentially, is specified in the item called Test Plan.
-
-  2) All HTTP Requests will use some default settings from the HTTP Request, such as the Server IP, Port Number, and Content-Encoding.
-
-  3) Each Thread Group specifies how the HTTP Requests should be carried out. To determine how many concurrent "users" will be simulated, one must first know the number of threads. The number of actions each "user" will perform is determined by the loop count.
-
-  4) The HTTP Header Manager, which allows you to provide the Request Headers that will be utilized by the upcoming HTTP Requests, is the first item in Thread Groups.
+3. **System Requirements**
+   - A machine with sufficient CPU and memory resources to handle the expected load during testing.
+   - Ensure that your system meets the minimum requirements for running JMeter effectively.
+   - We suggest multicore CPUs with 4 or more cores.
+   - Memory 16GB RAM is a good value.
 
 
-## Test Plan
-### Load the JMeter Script
+## View the Test Plan and API Configurations
+
+* Open "jmeter.bat", JMeter GUI will be open.
 * File > Open (CTRL + O)
 * Locate the "RestfulBooker_TC100.jmx" file contained on this repo
 * Continue opening from "RestfulBooker_TC100.jmx" to "RestfulBooker_TC5000.jmx"
@@ -70,12 +47,10 @@ As of JMeter 4.0, Java 8 and above are supported.
 
 ## Test execution
 
-### From the Terminal
 * JMeter should be initialized in non-GUI mode.
-* Make a report folder in the bin folder.
-* Run Command Prompt jmeter\bin folder.
+* Run Command Prompt from jmeter\bin folder.
 
-### Run Test and Generate Logs
+### Run Test and Generate Logs: 
 ```bash
   jmeter -n -t RestfulBooker_TC100.jmx    -l RestfulBooker_TC100.jtl
 ```      
