@@ -9,6 +9,20 @@ Using **Apache JMeter**, the test simulated concurrent user threads, starting fr
 The results provide insights into the system's capacity to handle concurrent users and will help guide optimizations for future scalability and performance improvements.
 
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [View the Test Plan and API Configurations](#view-the-test-plan-and-api-configurations)
+- [Test Execution](#test-execution)
+- [Summary](#summary)
+  - [Test Results Overview](#test-results-overview)
+  - [Key Observations](#key-observations)
+  - [HTML Reports](#html-reports)
+- [Conclusion](#conclusion)
+- [Recommendations](#recommendations)
+
+
+
 ## Prerequisites
 
 Before conducting performance tests using Apache JMeter, ensure that the following prerequisites are met:
@@ -50,7 +64,8 @@ Before conducting performance tests using Apache JMeter, ensure that the followi
 * JMeter should be initialized in non-GUI mode.
 * Run Command Prompt from jmeter\bin folder.
 
-### Run Test and Generate Logs: 
+
+1. Run Test and Generate Logs: 
 ```bash
   jmeter -n -t RestfulBooker_TC100.jmx    -l RestfulBooker_TC100.jtl
 ```      
@@ -62,12 +77,20 @@ Then continue to upgrade Threads(100 to 5000) by keeping Ramp-up Same.
 
 After completing this command  
 
-### Make html file
+
+
+2. Make Html file
+
 ```bash
   jmeter -g report\RestfulBooker_TC100.jmx -o RestfulBooker_TC100.html
 ```
+
   - **g**: jtl results file
   - **o**: path to output folder  
+
+
+---
+
 
 
 ## Summary
