@@ -1,41 +1,36 @@
-# Performance-Testing
-# Introduction
-Welcome to the performance testing repository for the [restful-booker API ](https://restful-booker.herokuapp.com) using Apache JMeter. This document explains how to run a performance test with JMeter.
+# Performance-Testing using Apache JMeter.
 
-Dear,
+## Introduction
 
-I’ve completed a performance test on frequently used API for the test App [restful-booker API](https://restful-booker.herokuapp.com)
+This performance test was conducted on the website [https://restful-booker.herokuapp.com](https://restful-booker.herokuapp.com) to evaluate its behavior under varying levels of concurrent API requests. The test aimed to assess the system's stability, throughput, and its ability to handle high traffic loads efficiently. 
 
-Test executed for the below-mentioned scenario in server [restful-booker API](https://restful-booker.herokuapp.com)
+Using **Apache JMeter**, the test simulated concurrent user threads, starting from 100 and increasing to 5000, with a ramp-up period of 10 seconds for each test. Key performance metrics such as **Average Transactions Per Second (TPS)** and the total number of API requests successfully processed were recorded to identify potential bottlenecks and measure the system's performance under different load conditions. 
 
-* 100 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 8 And Total Concurrent API requested: 500.
-* 500 Concurrent Request with 10;Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 42 And Total Concurrent API requested: 2500.
-* 1000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 84 And Total Concurrent API requested: 5000.
-* 2000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 168 And Total Concurrent API requested: 10000.
-* 3000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 250 And Total Concurrent API requested: 15000.
-* 4000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 302 And Total Concurrent API requested: 20000.
-* 4500 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 209 And Total Concurrent API requested: 22500.
-* 5000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 336 And Total Concurrent API requested: 25000.
+The results provide insights into the system's capacity to handle concurrent users and will help guide optimizations for future scalability and performance improvements.
 
-# Install
-# Java
+
+## Instructions
+
+### Install
+
+#### Java
 
 https://www.oracle.com/java/technologies/downloads/
 
-# JMeter
+#### JMeter
 
 https://jmeter.apache.org/download_jmeter.cgi
 
 Click =>Binaries
 =>apache-jmeter-5.5.zip
 
-# Prerequisites
+## Prerequisites
 
 As of JMeter 4.0, Java 8 and above are supported.
 * We suggest multicore CPUs with 4 or more cores.
 * Memory 16GB RAM is a good value.
 
-# Elements of a minimal test plan
+## Elements of a minimal test plan
 
 * Thread Group
   
@@ -45,7 +40,7 @@ As of JMeter 4.0, Java 8 and above are supported.
 * HTTP Request (Sampler)
 * Summary Report (Listener)
 
-# Test Plan
+## Test Plan
 * Testplan > Add > Threads (Users) > Thread Group (this might vary depending on the JMeter version you are using)
 * Name: RestfulBooker Users
 * Number of Threads (users): 100 to 5000
@@ -61,18 +56,18 @@ As of JMeter 4.0, Java 8 and above are supported.
   4) The HTTP Header Manager, which allows you to provide the Request Headers that will be utilized by the upcoming HTTP Requests, is the first item in Thread Groups.
 
 
-# Collection of API
-## Load the JMeter Script
+## Collection of API
+### Load the JMeter Script
 * File > Open (CTRL + O)
 * Locate the "RestfulBooker_TC100.jmx" file contained on this repo
-* Continue open "RestfulBooker_TC100.jmx" to "RestfulBooker_TC5000.jmx"
+* Continue opening from "RestfulBooker_TC100.jmx" to "RestfulBooker_TC5000.jmx"
 * Open those file
 * The Test Plan will be loaded
   
 ![Jmeter_GUI](https://github.com/user-attachments/assets/7620d50d-00ff-4c88-a8ff-dc181503d547)
 
 
-# Test execution (from the Terminal)
+### Test execution (from the Terminal)
 * JMeter should be initialized in non-GUI mode.
 * Make a report folder in the bin folder.
 * Run Command in jmeter\bin folder.
@@ -96,23 +91,39 @@ After completing this command
   - **g**: jtl results file
   - **o**: path to output folder  
 
-# Result Summary 
 
+## Summary
+---
 
-I’ve completed a performance test on frequently used API for the test App [restful-booker API ](https://restful-booker.herokuapp.com).
+### Test Results Overview
 
-Test executed for the below-mentioned scenario in server [restful-booker API ](https://restful-booker.herokuapp.com).
+| Concurrent Requests | Ramp-up Period | Average TPS | Total API Requests | Observations                |
+|---------------------|----------------|-------------|--------------------|-----------------------------|
+| 100                 | 10s            | ~8          | 500                | Stable                      |
+| 500                 | 10s            | ~42         | 2500               | Stable                      |
+| 1000                | 10s            | ~84         | 5000               | Stable                      |
+| 2000                | 10s            | ~168        | 10000              | Stable                      |
+| 3000                | 10s            | ~250        | 15000              | Stable                      |
+| 4000                | 10s            | ~302        | 20000              | Stable                      |
+| 4500                | 10s            | ~209        | 22500              | Stable but lower throughput |
+| 5000                | 10s            | ~336        | 25000              | Errors Noticed              |
 
-* 100 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 8 And Total Concurrent API requested: 500.
-* 500 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 42 And Total Concurrent API requested: 2500.
-* 1000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 84 And Total Concurrent API requested: 5000.
-* 2000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 168 And Total Concurrent API requested: 10000.
-* 3000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 250 And Total Concurrent API requested: 15000.
-* 4000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 302 And Total Concurrent API requested: 20000.
-* 4500 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 209 And Total Concurrent API requested: 22500.
-* 5000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 336 And Total Concurrent API requested: 25000.
+---
 
-# HTML Report
+### Key Observations
+
+1. **Stable Performance**
+   - The system performed stably up to **4500 concurrent requests**. The Average TPS steadily increased with the number of concurrent requests, reaching up to **302 TPS** with 4000 concurrent requests.
+
+2. **4500 Concurrent Requests**
+   - With **4500 concurrent requests**, the system remained stable but the throughput decreased. The Average TPS was **209**, lower than the expected progression from previous tests. This indicates the system could handle the load, but with reduced efficiency.
+
+3. **Performance Degradation at 5000 Concurrent Requests**
+   - When the number of concurrent requests reached **5000**, performance dropped significantly. The Average TPS increased to **336**, but errors were noticed during execution, indicating that the system struggled to handle this level of concurrency.
+
+---
+
+### HTML Reports
 
 **Number of Threads 100 ; Ramp-Up Period 10s**
 
@@ -164,3 +175,30 @@ Test executed for the below-mentioned scenario in server [restful-booker API ](h
 ![Number of Threads 5000 ; Ramp-Up Period 10s](https://github.com/user-attachments/assets/9f3a4d18-cff6-48ff-8ae6-c06a2efdc4cc)
 
 ![Number of Threads 5000 ; Ramp-Up Period 10s](https://github.com/user-attachments/assets/59888856-a603-4b1b-a570-b0bd133fd820)
+
+
+
+### Conclusion
+
+The system demonstrated solid performance up to **4500 concurrent requests**, handling high traffic efficiently but with reduced throughput at this level. Beyond this threshold, particularly at **5000 concurrent requests**, errors emerged, suggesting a need for optimization or infrastructure scaling to maintain performance under extreme load conditions.
+
+---
+
+### Recommendations
+
+1. **System Tuning**
+   - Investigate potential bottlenecks in the system (e.g., database connections, server limits) and tune them to handle more than 4500 concurrent users. Special attention should be paid to throughput optimization for **4500 concurrent requests**.
+
+2. **Infrastructure Scaling**
+   - Consider scaling the infrastructure vertically or horizontally to accommodate higher concurrency levels.
+
+3. **Further Testing**
+   - Conduct additional testing at a range between **4500 and 5000** concurrent requests to pinpoint the system’s capacity limit more accurately.
+
+---
+
+
+
+
+
+
