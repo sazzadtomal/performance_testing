@@ -56,7 +56,7 @@ As of JMeter 4.0, Java 8 and above are supported.
   4) The HTTP Header Manager, which allows you to provide the Request Headers that will be utilized by the upcoming HTTP Requests, is the first item in Thread Groups.
 
 
-## Collection of API
+## Test Plan
 ### Load the JMeter Script
 * File > Open (CTRL + O)
 * Locate the "RestfulBooker_TC100.jmx" file contained on this repo
@@ -66,13 +66,16 @@ As of JMeter 4.0, Java 8 and above are supported.
   
 ![Jmeter_GUI](https://github.com/user-attachments/assets/7620d50d-00ff-4c88-a8ff-dc181503d547)
 
+---
 
-### Test execution (from the Terminal)
+## Test execution
+
+### From the Terminal
 * JMeter should be initialized in non-GUI mode.
 * Make a report folder in the bin folder.
-* Run Command in jmeter\bin folder.
+* Run Command Prompt jmeter\bin folder.
 
-### Make jtl file
+### Run Test and Generate Logs
 ```bash
   jmeter -n -t RestfulBooker_TC100.jmx    -l RestfulBooker_TC100.jtl
 ```      
@@ -93,7 +96,6 @@ After completing this command
 
 
 ## Summary
----
 
 ### Test Results Overview
 
