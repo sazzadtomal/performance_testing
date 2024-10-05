@@ -98,14 +98,13 @@ After completing this command
 
 # Result Summary 
 
-Dear,
 
 I’ve completed a performance test on frequently used API for the test App [restful-booker API ](https://restful-booker.herokuapp.com).
 
 Test executed for the below-mentioned scenario in server [restful-booker API ](https://restful-booker.herokuapp.com).
 
 * 100 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 8 And Total Concurrent API requested: 500.
-* 500 Concurrent Request with 10;Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 42 And Total Concurrent API requested: 2500.
+* 500 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 42 And Total Concurrent API requested: 2500.
 * 1000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 84 And Total Concurrent API requested: 5000.
 * 2000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 168 And Total Concurrent API requested: 10000.
 * 3000 Concurrent Request with 10; Ramp-up Speed 10s; Avg TPS for Total Samples is ~ 250 And Total Concurrent API requested: 15000.
